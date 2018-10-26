@@ -20,7 +20,7 @@ var courses_offered = [{id: 21, name: 'HCI'},
 
 app.get('/', (req, res) => res.send('Hello World!'+SOME_NUM))
 
-
+  
 app.get('/courses', (req, res) => {
    res.json(courses_offered)
 })
