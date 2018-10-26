@@ -8,7 +8,7 @@ const cnn = "https://cnn.com"
 const fetch = require("node-fetch");
 
 test('multiply 2', () => {
-    expect(4).toBe(4);
+    expect(3).toBe(4);
 });
 
 
