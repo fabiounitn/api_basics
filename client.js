@@ -4,17 +4,17 @@ const fetch = require("node-fetch");
 //const url = "https://api.sunrise-sunset.org/json?lat=36.7201600&lng=-4.4203400"
 
 const url = "http://localhost:3000/"
-
 const get = async url => {
-console.log('\ngetting ' + url)
-  try {
-    const response = await fetch(url);
-    const json = await response.json();
-    console.log(json)
-  } catch (error) {
-    console.log(error);
-  }
+    console.log('\ngetting ' + url)
+    try {
+        const response = await fetch(url);
+        const json = await response.json();
+        console.log(json)
+    } catch (error) {
+        console.log(error);
+    }
 };
+
 
 async function postBody(url, body) {
     console.log('\nposting ' + url, body)

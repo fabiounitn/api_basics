@@ -1,12 +1,13 @@
 const express = require('express')
 var bodyParser = require('body-parser')
+
 const app = express()
 app.use( bodyParser.json() )
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const PORT = process.env.PORT || 3000
 
-
+const SOME_NUM = process.env.def || 40
 // app.use(function(req, res, next) {
 //     res.header("Access-Control-Allow-Origin", "*");
 //     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -26,10 +27,10 @@ app.get('/courses', (req, res) => {
 
 // In reality we should probably verify the name does not exist already
 app.post('/courses', (req, res) => {
-   const course_name = req.body.name
-   const new_id = course_name.replace(/\s/g, '')
-   const new_course =  {id:new_id, name:course_name}
-   courses_offered.push(new_course)
+    const course_name = req.body.name
+    const new_id = course_name.replace(/\s/g, '')
+    const new_course =  {id:new_id, name:course_name}
+    courses_offered.push(new_course)
     res.status(201)
     res.json(new_course)
     console.log(courses_offered)
@@ -68,4 +69,11 @@ app.delete('/courses/:courseid', (req, res) => {
 
 
 
-app.listen(PORT, () => console.log('Example app listening on port'+ PORT))
+function dummy(a) {
+    console.log('in test')
+    return a*2
+}
+
+module.exports = {dummy,app};
+
+app.listen(PORT, () => console.log('Example app listening on port'+ PORT, SOME_NUM))
