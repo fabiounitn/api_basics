@@ -18,7 +18,7 @@ const SOME_NUM = process.env.def || 40
 var courses_offered = [{id: 21, name: 'HCI'},
 {id: 28, name:'sweng'}]
 
-app.get('/', (req, res) => res.send('Hello World! deploy success'+SOME_NUM))
+app.get('/', (req, res) => res.send('Hello World! no deploy on fail'+SOME_NUM))
 
 
 app.get('/courses', (req, res) => {
