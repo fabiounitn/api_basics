@@ -19,11 +19,11 @@ test('multiply 2', () => {
 //         .then( data => expect(data[0]).toEqual({"id": 21, "name": "HCI"}) );
 // });
 
-// it('works with get', () => {
-//     expect.assertions(1);
-//     return fetch(cnn)
-//         .then(r => expect(r.status).toEqual(200));
-// });
+it('works with get', () => {
+    expect.assertions(1);
+    return fetch(cnn)
+        .then(r => expect(r.status).toEqual(200));
+});
 
 
 // it('works with post', () => {
