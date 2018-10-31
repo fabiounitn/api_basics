@@ -7,6 +7,6 @@ test('concat test', () => {
 });
 
 test('concat null', () => {
-    expect(conc(null,null)).toBe(null);
+    expect(conc(null,null)).toBe(0);
 });
 
