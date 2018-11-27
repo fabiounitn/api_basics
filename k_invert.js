@@ -6,7 +6,7 @@ function k_invert(a,k) {
 
 }
 
-//
+// some change
 // console.log('[1,2]',k_invert([1,2,3,4,5],1))
 //
 // console.log("[1,'a']",k_invert([1,'a'],3))
