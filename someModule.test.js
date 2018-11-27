@@ -1,12 +1,15 @@
 
-const conc = require('./someModule').conc
+const concatenateStrings = require('./someModule').concatenateStrings
 
+// const c = require('./someModule')
+//
+// c.concatenateStrings()
 
 test('concat test', () => {
-    expect(conc('a','b')).toBe('ab');
+    expect(concatenateStrings('a','b')).toBe('ab');
 });
 
 test('concat null', () => {
-    expect(conc(null,null)).toBe(0);
+    expect(concatenateStrings(null,null)).toBe(0);
 });
 

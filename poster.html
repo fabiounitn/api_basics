@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    Array: <input type="text" name="fname" id="a"><br>
+    k: <input type="number" name="lname" id="k"><br>
+    <input type="submit" value="Submit" onclick="send();">
+</div>
+<textarea id="ta">
+</textarea>
+
+
+<script>
+
+
+    const aelem = document.getElementById('a');
+    const kelem = document.getElementById('k');
+    const ta= document.getElementById('ta');
+    const url = 'http://localhost:3000/invert'
+
+function  send() {
+    const a_asArray = aelem.value.split(',').map(function(item) {
+        return parseInt(item, 10);
+    });
+
+    const body = {a: a_asArray, k: kelem.value }
+    fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(body),
+        headers: {
+            'Accept': 'application/json',
+            'Content-type': 'application/json',
+        }
+    })
+        .then(r=> r.json())
+        .then(j => {
+            console.log(j)
+            ta.value=j
+        })
+        .catch(e => {
+            ta.value=e
+        })
+    console.log(body)
+}
+
+</script>
+
+
+</body>
+</html>

@@ -1,9 +1,19 @@
 const express = require('express')
+const k_invert = require('./k_invert')
+
 var bodyParser = require('body-parser')
 
 const app = express()
 app.use( bodyParser.json() )
 app.use(bodyParser.urlencoded({ extended: true }));
+
+
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 
 const PORT = process.env.PORT || 3000
 
@@ -67,7 +77,15 @@ app.delete('/courses/:courseid', (req, res) => {
     // reply with the correct status code
 })
 
-
+app.post('/invert', (req, res) => {
+    const a = req.body.a
+    const k = parseInt(req.body.k)
+    const result = k_invert(a,k)
+    // const new_course =  {id:new_id, name:course_name}
+    // courses_offered.push(new_course)
+    // res.status(201)
+    res.json(result)
+})
 
 function dummy(a) {
     console.log('in test')
