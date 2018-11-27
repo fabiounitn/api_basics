@@ -4,7 +4,7 @@ function k_invert(a,k) {
     if (a.some((n)=> {return n<=0} )  || !a.every(Number.isInteger) || !(k>a.length && k<0) ) return 'error'
     return a.slice(-k).concat(a.slice(0,a.length-k))
 
-}
+\\}
 
 // some change
 // console.log('[1,2]',k_invert([1,2,3,4,5],1))
