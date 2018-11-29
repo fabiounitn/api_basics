@@ -1,7 +1,8 @@
 
 function k_invert(a,k) {
 
-    if (a.some((n)=> {return n<=0} )  || !a.every(Number.isInteger) || !(k>a.length && k<0) ) return 'error'
+    if (!a || !k || arguments.length!==2) return 'error'
+    if (a.some((n)=> {return n<=0} )  || !a.every(Number.isInteger) || !(k<=a.length && k>0) ) return 'error'
     return a.slice(-k).concat(a.slice(0,a.length-k))
 
 }
